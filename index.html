@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hi! I'm Xinyi — a friendly developer who loves building warm, human-centered products." />
+  <title>Xinyi Liu · Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark">A</span>
+        <span class="nav__name">Xinyi Liu</span>
+      </a>
+
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav__menu" id="navMenu">
+        <a href="index.html" class="nav__link nav__link--active">Home</a>
+        <a href="resume.html" class="nav__link">Resume</a>
+        <a href="projects.html" class="nav__link">Projects</a>
+        <a href="contact.html" class="nav__link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__photo reveal">
+          <img src="img/profile.jpeg" alt="Xinyi Liu" class="hero__img" />
+          <span class="hero__photo-blob" aria-hidden="true"></span>
+          <span class="hero__photo-dot" aria-hidden="true">👋</span>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__hi reveal" data-delay="100">Hi there, I'm</p>
+          <h1 class="hero__name reveal" data-delay="200">Xinyi Liu</h1>
+          <p class="hero__intro reveal" data-delay="300">
+            A developer who loves turning cozy ideas into friendly little corners of the internet.
+            I build warm, human-centered websites and tools, and I genuinely enjoy every part of
+            the journey — from the first sketch to the final polish.
+          </p>
+          <div class="hero__cta reveal" data-delay="400">
+            <a href="projects.html" class="btn btn--primary">See my work</a>
+            <a href="contact.html" class="btn btn--ghost">Say hello</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three things I like -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">A little about me</span>
+          <h2 class="section__title">Three things I love</h2>
+          <p class="section__subtitle">Beyond the screen, these keep me smiling every day.</p>
+        </div>
+
+        <div class="likes">
+          <article class="like-card reveal" data-delay="100">
+            <div class="like-card__icon">☕</div>
+            <h3 class="like-card__title">Slow mornings</h3>
+            <p class="like-card__text">
+              A fresh cup of pour-over coffee, a quiet kitchen, and absolutely no alarms.
+              That's my favorite way to start any day.
+            </p>
+          </article>
+
+          <article class="like-card reveal" data-delay="200">
+            <div class="like-card__icon">🌿</div>
+            <h3 class="like-card__title">Nature walks</h3>
+            <p class="like-card__text">
+              Wandering forest trails and city parks with my camera in hand. Trees and
+              side streets make the best storytellers.
+            </p>
+          </article>
+
+          <article class="like-card reveal" data-delay="300">
+            <div class="like-card__icon">📚</div>
+            <h3 class="like-card__title">Getting lost in books</h3>
+            <p class="like-card__text">
+              From cozy mysteries to big illustrated novels. I always have a book on the
+              nightstand and another in my bag.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with a fun fact -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__fact">
+        <span class="footer__fact-label">Fun fact about me</span>
+        <p class="footer__fact-text">
+          I once shipped a tiny typo into production… and three users told me it was their
+          favorite feature. It's still there. 💛
+        </p>
+      </div>
+      <div class="footer__meta">
+        <p class="footer__copy">© <span id="year"></span> Xinyi Liu · Built with warmth and HTML.</p>
+        <a href="contact.html" class="footer__link">Get in touch →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projects by Xinyi Liu — friendly little products made with care." />
+  <title>Xinyi Liu · Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">
+        <span class="nav__mark">A</span>
+        <span class="nav__name">Xinyi Liu</span>
+      </a>
+      <button class="nav__burger" id="navBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__menu" id="navMenu">
+        <a href="index.html" class="nav__link">Home</a>
+        <a href="resume.html" class="nav__link">Resume</a>
+        <a href="projects.html" class="nav__link nav__link--active">Projects</a>
+        <a href="contact.html" class="nav__link">Contact Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- To-Do app -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">📋 Stay organized</span>
+          <h2 class="section__title">My To-Do List</h2>
+          <p class="section__subtitle">Pick a date, jot down what needs doing, and check things off as you go. Little wins, one task at a time.</p>
+        </div>
+
+        <section class="todo" aria-labelledby="todoTitle">
+          <div class="todo__card">
+            <h2 id="todoTitle" class="todo__title">✨ Add a task</h2>
+            <p class="todo__subtitle">🗓️ Pick a date (or tap Today / Tomorrow), choose a fun icon, then add it to your list.</p>
+
+            <form class="todo__form" id="todoForm">
+              <div class="todo__row">
+                <label class="todo__field todo__field--grow" for="todoInput">
+                  <span class="todo__label">Task</span>
+                  <input type="text" id="todoInput" class="todo__input" placeholder="What needs doing?" required maxlength="140" autocomplete="off" />
+                </label>
+                <label class="todo__field" for="todoDate">
+                  <span class="todo__label">Date</span>
+                  <input type="date" id="todoDate" class="todo__input todo__input--date" required />
+                  <span class="todo__date-shorts">
+                    <button type="button" class="todo__chip" data-days="0">📍 Today</button>
+                    <button type="button" class="todo__chip" data-days="1">🌅 Tomorrow</button>
+                    <button type="button" class="todo__chip" data-days="7">📆 Next week</button>
+                  </span>
+                </label>
+              </div>
+              <div class="todo__pickers">
+                <fieldset class="todo__priority">
+                  <span class="todo__label">Importance</span>
+                  <div class="todo__prio-group" role="group" aria-label="Importance">
+                    <button type="button" class="todo__prio" data-prio="low">🟢 Low</button>
+                    <button type="button" class="todo__prio is-active" data-prio="medium">🟡 Medium</button>
+                    <button type="button" class="todo__prio" data-prio="high">🔴 High</button>
+                  </div>
+                </fieldset>
+                <fieldset class="todo__emoji">
+                  <span class="todo__label">Icon</span>
+                  <div class="todo__emoji-group" id="todoEmojiGroup" role="group" aria-label="Task icon"></div>
+                </fieldset>
+              </div>
+              <button type="submit" class="btn btn--primary todo__add">➕ Add to list</button>
+            </form>
+
+            <!-- Progress bar -->
+            <div class="todo__progress" id="todoProgress" hidden>
+              <div class="todo__progress-head">
+                <span class="todo__progress-label">Progress</span>
+                <span class="todo__progress-text" id="todoProgressText">0%</span>
+              </div>
+              <div class="todo__progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="todo__progress-bar" id="todoProgressBar"></span>
+              </div>
+            </div>
+
+            <!-- Toolbar: search + filters + clear -->
+            <div class="todo__toolbar" id="todoToolbar" hidden>
+              <label class="todo__search" for="todoSearch">
+                <span class="todo__search-icon" aria-hidden="true">🔎</span>
+                <input type="search" id="todoSearch" class="todo__input todo__search-input" placeholder="Search tasks…" autocomplete="off" />
+              </label>
+
+              <div class="todo__filters" role="group" aria-label="Filter tasks by status">
+                <button type="button" class="todo__filter is-active" data-filter="all">All</button>
+                <button type="button" class="todo__filter" data-filter="active">Active</button>
+                <button type="button" class="todo__filter" data-filter="done">Done</button>
+              </div>
+
+              <div class="todo__filters" role="group" aria-label="Filter tasks by importance">
+                <button type="button" class="todo__filter todo__filter--prio is-active" data-prio-filter="all">All</button>
+                <button type="button" class="todo__filter todo__filter--prio" data-prio-filter="low">🟢</button>
+                <button type="button" class="todo__filter todo__filter--prio" data-prio-filter="medium">🟡</button>
+                <button type="button" class="todo__filter todo__filter--prio" data-prio-filter="high">🔴</button>
+              </div>
+
+              <button type="button" class="todo__clear" id="todoClear">🧹 Clear completed</button>
+            </div>
+
+            <p class="todo__count" id="todoCount" hidden></p>
+            <p class="todo__status" id="todoStatus" role="status" hidden></p>
+
+            <ul class="todo__list" id="todoList" aria-label="Tasks"></ul>
+            <p class="todo__empty" id="todoEmpty">🌱 Nothing here yet — add your first task above.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Weather app -->
+    <div class="container">
+      <section class="weather" aria-labelledby="weatherTitle">
+        <div class="weather__head">
+          <span class="section__eyebrow reveal">🌦️ Another little project</span>
+          <h2 class="weather__heading reveal" data-delay="100">Weather Now</h2>
+          <p class="weather__lead reveal" data-delay="200">
+            🏙️ Type a city, press Search, and see what the sky is up to right now.
+          </p>
+        </div>
+
+        <div class="weather__card reveal" data-delay="300">
+          <h3 id="weatherTitle" class="weather__title">🌤️ Check the weather</h3>
+          <p class="weather__subtitle">Live conditions, local time and a 3-day outlook.</p>
+
+          <form class="weather__form" id="weatherForm">
+            <label class="weather__field" for="weatherInput">
+              <span class="weather__label">City</span>
+              <input type="text" id="weatherInput" class="weather__input" placeholder="e.g. Beijing" autocomplete="off" />
+            </label>
+            <button type="submit" class="btn btn--primary weather__search">🔍 Search</button>
+          </form>
+
+          <p class="weather__status" id="weatherStatus" role="status" hidden></p>
+
+          <div class="weather__result" id="weatherResult" hidden>
+            <div class="weather__current">
+              <div class="weather__icon" id="weatherIcon" aria-hidden="true">🌡️</div>
+              <div class="weather__info">
+                <p class="weather__city" id="weatherCity"></p>
+                <p class="weather__temp" id="weatherTemp"></p>
+                <p class="weather__cond" id="weatherCond"></p>
+                <p class="weather__range" id="weatherRange" hidden></p>
+              </div>
+              <div class="weather__unit" id="weatherUnit" role="group" aria-label="Temperature unit">
+                <button type="button" class="weather__unit-btn is-active" data-unit="c" aria-pressed="true">°C</button>
+                <button type="button" class="weather__unit-btn" data-unit="f" aria-pressed="false">°F</button>
+              </div>
+            </div>
+
+            <!-- Live local clock at the searched city (ticks every second) -->
+            <div class="weather__clock" id="weatherClock" hidden>
+              <div class="weather__clock-main">
+                <span class="weather__clock-label">Local time</span>
+                <span class="weather__clock-time">
+                  <span id="weatherClockHM">--:--</span><span class="weather__clock-sec" id="weatherClockSec">:--</span>
+                </span>
+                <span class="weather__clock-date" id="weatherClockDate"></span>
+              </div>
+              <span class="weather__clock-zone" id="weatherClockZone"></span>
+              <span class="weather__clock-live" aria-hidden="true">live</span>
+            </div>
+
+            <!-- Conditions at a glance -->
+            <div class="weather__details" id="weatherDetails" hidden></div>
+
+            <div class="weather__forecast" id="weatherForecast" hidden></div>
+
+            <p class="weather__foot" id="weatherFoot" hidden></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- English learning app -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">🦊 For little learners</span>
+          <h2 class="section__title">Let's Learn English!</h2>
+          <p class="section__subtitle">A cute little word quiz for children aged 3–6. Tap an image, pick the right word, and celebrate when you get all three!</p>
+        </div>
+
+        <div class="container" style="max-width: 520px;">
+          <a href="english-app/index.html" class="weather__card reveal" data-delay="200" style="text-decoration:none; display:block; cursor:pointer;">
+            <h3 class="weather__title">🌟 Open the English Quiz</h3>
+            <p class="weather__subtitle">Start → see an apple, a dog, and an eye → pick the right word each time!</p>
+            <p style="margin-top:14px; font-weight:700; color:#e17055;">▶ Play now →</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer footer--simple">
+    <div class="container footer__inner">
+      <p class="footer__copy">© <span id="year"></span> Xinyi Liu · Built with warmth and HTML.</p>
+      <a href="contact.html" class="footer__link">Get in touch →</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="js/main.js?v=12" defer></script>
+</body>
+</html>
